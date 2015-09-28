@@ -121,36 +121,37 @@ print mypath
 if debugMode == 1:
     print NLINE
 
-cur_x = int(raw_input("pleaes enter the current x coordinate: "))
-cur_y = int(raw_input("pleaes enter the current y coordinate: "))
-heading = int(raw_input("pleaes enter the current direction: "))
+for i in range(5): 
+    cur_x = int(raw_input("pleaes enter the current x coordinate: "))
+    cur_y = int(raw_input("pleaes enter the current y coordinate: "))
+    heading = int(raw_input("pleaes enter the current direction: "))
 
-if debugMode == 1:
-    print NLINE
-    print "Culculating the nearest node"
-    print NLINE
+    if debugMode == 1:
+        print NLINE
+        print "Culculating the nearest node"
+        print NLINE
 
-result = locate.locationFinding(V, E, orientation, cur_x, cur_y, heading, map_cor)
+    result = locate.locationFinding(V, E, orientation, cur_x, cur_y, heading, map_cor)
 
-map_heading = result[0]
-angle = result[1]
-turning = result[2]
-LR = result[3]
-nearest = result[4]
+    map_heading = result[0]
+    angle = result[1]
+    turning = result[2]
+    LR = result[3]
+    nearest = result[4]
 
-if debugMode == 1:
-    print "The user's heading in map is: " + str(map_heading)
-    print "The direction of nearest node from current position is: " + str(angle)
-print "The user shall turn " + str(turning) + " degrees to the " + LR
-print "Next node is in distance of " + str(nearest[0]) + " centimeters"
+    if debugMode == 1:
+        print "The user's heading in map is: " + str(map_heading)
+        print "The direction of nearest node from current position is: " + str(angle)
+    print "The user shall turn " + str(turning) + " degrees to the " + LR
+    print "Next node is in distance of " + str(nearest[0]) + " centimeters"
 
-if debugMode == 1:
-    print NLINE
-    print "Culculating the new path"
-    print NLINE
+    if debugMode == 1:
+        print NLINE
+        print "Culculating the new path"
+        print NLINE
 
-mypath = path.findPath(V, E, map_cor, AdjList, nearest[1], destination)
-print "The new path we found is"
-print mypath
+    mypath = path.findPath(V, E, map_cor, AdjList, nearest[1], destination)
+    print "The new path we found is"
+    print mypath
 
 
